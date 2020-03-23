@@ -1,8 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <fstream>
-#include <iostream>
+#include "graph.h"
+#include "ui_graph.h"
+#include "bookfile.h"
+#include "ui_kv_na_f.h"
+#include "kv_na_f.h"
+#include "ui_zian.h"
+#include "zian.h"
 #include <QErrorMessage>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,30 +34,52 @@ void MainWindow::ClearTable()
         }
     }
 }
+void MainWindow::showRow(int i,recType r)
+{
+    QTableWidgetItem *item;
+    item = new QTableWidgetItem();
+    item->setFlags(Qt::NoItemFlags);
+    item->setText(r.address);
+    ui->table->setItem(i,0,item);
 
+    item = new QTableWidgetItem();
+    item->setFlags(Qt::NoItemFlags);
+    item->setText(QString::number(r.floor));
+    ui->table->setItem(i,1,item);
+
+    item = new QTableWidgetItem();
+    item->setFlags(Qt::NoItemFlags);
+    item->setText(QString::number(r.Ncom));
+    ui->table->setItem(i,2,item);
+
+    item = new QTableWidgetItem();
+    item->setFlags(Qt::NoItemFlags);
+    item->setText(QString::number(r.S));
+    ui->table->setItem(i,3,item);
+
+    item = new QTableWidgetItem();
+    item->setFlags(Qt::NoItemFlags);
+    item->setText(QString::number(r.cost));
+    ui->table->setItem(i,4,item);
+}
 
 void MainWindow::DrawTable()
 {
     ClearTable();
-    std::fstream fin("File.txt", std::ios_base::binary | std::ios_base::in);
-    if(!fin)
+    bookFile book;
+    if (!book.readRec())
     {
         (new QErrorMessage(this))->showMessage("File not found!");
     }
-    int i = 0;
-    while(!fin.eof())
+    else
     {
-        House buffer;
-        fin >> buffer.address;
-
-        QTableWidgetItem *item = new QTableWidgetItem;
-        item->setText(buffer.address);
-        ui->table->setItem(i, 0, item);
-        if(i>30) break;
-        ++i;
-        std::cout<<i<<"\n";
+        showRow(0,book.r);
+        int i=0;
+        while (book.readRec())
+        {
+            showRow(++i,book.r);
+        }
     }
-    fin.close();
 }
 
 bool MainWindow::CheckAllField()
@@ -68,20 +96,16 @@ void MainWindow::on_pushButton_clicked()
 {
     if (CheckAllField() == true)
     {
-        House *buffer = new House;
-        buffer->address = ui->lineEdit->text();
-        buffer->floor   = ui->lineEdit_2->text().toInt();
-        buffer->Ncom    = ui->lineEdit_3->text().toInt();
-        buffer->S       = ui->lineEdit_4->text().toInt();
-        buffer->cost    = ui->lineEdit_5->text().toInt();
+        bookFile book;
+        recType r;
+        r.address = ui->lineEdit->text();
+        r.floor   = ui->lineEdit_2->text().toInt();
+        r.Ncom    = ui->lineEdit_3->text().toInt();
+        r.S       = ui->lineEdit_4->text().toInt();
+        r.cost    = ui->lineEdit_5->text().toInt();
 
-        std::ofstream fout("File.txt", std::ios::binary);
-        if(!fout)
-        {
-            (new QErrorMessage(this))->showMessage("File not found!");
-        }
-        fout << buffer->address;
-        fout.close();
+        book.addRec(r);
+        book.~bookFile();
 
         ui->lineEdit->setText("");
         ui->lineEdit_2->setText("");
@@ -96,14 +120,87 @@ void MainWindow::on_pushButton_clicked()
         (new QErrorMessage(this))->showMessage("Input all field");
     }
 }
-//QString::number();
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    //d
+    bookFile book;
+    if (!book.readRec())
+    {
+        QMessageBox msg(QMessageBox::Critical,
+                        ("Íåò äàííûõ"),
+                        ("Áàçà ïóñòà"),
+                        QMessageBox::Ok,0);
+    }
+    else
+    {
+
+        int i=0;
+        if ((book.r.floor == ui->lineEdit_2->text().toInt()) &&
+            (book.r.S >= ui->lineEdit->text().toInt()) &&
+            (book.r.S <= ui->lineEdit_3->text().toInt()))
+        {
+            ++i;
+        }
+        while (book.readRec())
+        {
+
+        }
+    }
+    book.~bookFile();
+
+
+    DrawTable();
 }
 
 void MainWindow::on_pushButton_7_clicked()
 {
     DrawTable();
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    Graph *graph = new Graph;
+    graph->show();
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+
+    bookFile book;
+    if (!book.readRec() || (ui->lineEdit_3->text() == ""))
+    {
+        (new QErrorMessage(this))->showMessage("Error!");
+    }
+    else
+    {
+        int sum = 0, k = 0;
+        if (book.r.Ncom == (ui->lineEdit_3->text()).toInt())
+        {
+            sum += book.r.S;
+            ++k;
+        }
+        int i=0;
+        while (book.readRec())
+        {
+            if (book.r.Ncom == (ui->lineEdit_3->text()).toInt())
+            {
+                sum += book.r.S;
+                ++k;
+            }
+        }
+        ui->lineEdit_6->setText(QString::number((double)sum/(double)k));
+    }
+
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    Kv_na_f *Kv = new Kv_na_f();
+    Kv->show();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    Zian *z = new Zian();
+    z->show();
 }

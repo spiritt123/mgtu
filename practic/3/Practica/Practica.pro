@@ -13,8 +13,19 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    graph.cpp \
+    bookfile.cpp \
+    kv_na_f.cpp \
+    zian.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    graph.h \
+    bookfile.h \
+    kv_na_f.h \
+    zian.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    graph.ui \
+    kv_na_f.ui \
+    zian.ui

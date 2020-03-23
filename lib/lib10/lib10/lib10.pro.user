@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.0.3, 2020-03-22T05:24:13. -->
+<!-- Written by QtCreator 4.0.3, 2020-03-23T07:39:42. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -66,7 +66,7 @@
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/practic/3/Error in &quot; Util.asciify(&quot;build-Practica-Desktop_Qt_5_6_3_GCC_64bit-Debug&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xd8e710) is not a function</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/mgtu/lib/lib10/Error in &quot; Util.asciify(&quot;build-lib10-Desktop_Qt_5_6_3_GCC_64bit-Debug&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xe87500) is not a function</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -126,7 +126,7 @@
     <value type="bool" key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/practic/3/Error in &quot; Util.asciify(&quot;build-Practica-Desktop_Qt_5_6_3_GCC_64bit-Release&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xd8e710) is not a function</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/mgtu/lib/lib10/Error in &quot; Util.asciify(&quot;build-lib10-Desktop_Qt_5_6_3_GCC_64bit-Release&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xe87500) is not a function</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -186,7 +186,7 @@
     <value type="bool" key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/practic/3/Error in &quot; Util.asciify(&quot;build-Practica-Desktop_Qt_5_6_3_GCC_64bit-Profile&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xd8e710) is not a function</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/mgtu/lib/lib10/Error in &quot; Util.asciify(&quot;build-lib10-Desktop_Qt_5_6_3_GCC_64bit-Profile&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xe87500) is not a function</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -302,15 +302,15 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Practica</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Practica2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/alex/Desktop/mgtu/mgtu/practic/3/Practica/Practica.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">lib10</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/alex/Desktop/mgtu/mgtu/lib/lib10/lib10/lib10.pro</value>
     <value type="bool" key="QmakeProjectManager.QmakeRunConfiguration.UseLibrarySearchPath">true</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">Practica.pro</value>
+    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">lib10.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory"></value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory.default">/home/alex/Desktop/mgtu/practic/3/Error in &quot; Util.asciify(&quot;build-Practica-Desktop_Qt_5_6_3_GCC_64bit-Debug&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xd8e710) is not a function</value>
+    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory.default">/home/alex/Desktop/mgtu/mgtu/lib/lib10/Error in &quot; Util.asciify(&quot;build-lib10-Desktop_Qt_5_6_3_GCC_64bit-Debug&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xe87500) is not a function</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -331,7 +331,7 @@
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/practic/3/Error in &quot; Util.asciify(&quot;build-Practica-Desktop-Debug&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xd8e710) is not a function</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/mgtu/lib/lib10/Error in &quot; Util.asciify(&quot;build-lib10-Desktop-Debug&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xe87500) is not a function</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -391,7 +391,7 @@
     <value type="bool" key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/practic/3/Error in &quot; Util.asciify(&quot;build-Practica-Desktop-Release&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xd8e710) is not a function</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/mgtu/lib/lib10/Error in &quot; Util.asciify(&quot;build-lib10-Desktop-Release&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xe87500) is not a function</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -451,7 +451,7 @@
     <value type="bool" key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/practic/3/Error in &quot; Util.asciify(&quot;build-Practica-Desktop-Profile&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xd8e710) is not a function</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/alex/Desktop/mgtu/mgtu/lib/lib10/Error in &quot; Util.asciify(&quot;build-lib10-Desktop-Profile&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xe87500) is not a function</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -565,17 +565,14 @@
      <value type="int">13</value>
      <value type="int">14</value>
     </valuelist>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Practica</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Practica2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/alex/Desktop/mgtu/mgtu/practic/3/Practica/Practica.pro</value>
-    <value type="bool" key="QmakeProjectManager.QmakeRunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">Practica.pro</value>
-    <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory"></value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory.default">/home/alex/Desktop/mgtu/practic/3/Error in &quot; Util.asciify(&quot;build-Practica-Desktop-Debug&quot;)&quot;: TypeError: Property 'asciify' of object Core::Internal::UtilsJsExtension(0xd8e710) is not a function</value>
+    <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Arguments"></value>
+    <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Executable"></value>
+    <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.WorkingDirectory">%{buildDir}</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Custom Executable</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.CustomExecutableRunConfiguration</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
