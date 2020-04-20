@@ -65,7 +65,7 @@ public:
         }
         for (int i = 0; i < sets.size(); ++i)
         {
-            if (is_int == sets[i].is_int)
+            if ((is_int == sets[i].is_int) && (is_int == true))
             {
                 if (value == sets[i].value_int)
                 {
@@ -77,6 +77,7 @@ public:
                 if (value == sets[i].value_double)
                 {
                     is_belong = true;
+
                 }
             }
         }

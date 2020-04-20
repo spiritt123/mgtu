@@ -101,15 +101,32 @@ protected:
 int main()
 {
     Train *tr = new Train();
-    tr->AddVal(500, 100, "ss");
-    tr->AddVal(10, 100, "1");
-    tr->DeleteVal();
-    tr->AddVal(100, 20, "aa");
-    tr->AddVal(200, 50, "xx");
+    while (true)
+    {
+        std::cout << '\n' << "1-add, 2-delete, 3-print" << '\n';
+        int a = 0;
+        std::cin >> a;
+        int massa, carry;
+        std::string name;
+        if (a == 1)
+        {
+            std::cout << "Введите грузоподъёмность, массу и наименование груза" << '\n';
+            std::cin >> carry >> massa >> name; 
+            tr->AddVal(carry, massa, name);
+        }
+        if (a == 2)
+        {
+            tr->DeleteVal();
+        }
+        if (a == 3)
+        {
+            tr->PrintInfo();
+            std::cout << "All carry: " << tr->GetAllCarry() << '\n';
+            std::cout << "> 50%\\ carry: " << tr->Get50plus() << '\n'; 
+        }
+    }
 
-    tr->PrintInfo();
-    std::cout << "All carry: " << tr->GetAllCarry() << '\n';
-    std::cout << "> 50%\\ carry: " << tr->Get50plus() << '\n';
+
 
     return 0;
 }

@@ -14,7 +14,7 @@ int main()
     std::string str = "egasr";
     Word wr;
     wr.Init(str);
-    std::cout << wr.glas() << '\n';
+    std::cout << "Кол-во гласных: " << wr.glas() << '\n';
     wr.Print();
 
 

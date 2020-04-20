@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "sets.h"
+#include<QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -64,4 +65,26 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
     ui->lineEdit->setText(QString::number(ns->Sred()));
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    QMessageBox msgBox;
+    if (ns->IsBelong(ui->spinBox->text().toInt()))
+    {
+        msgBox.setText("Yes");
+    }
+    else msgBox.setText("No");
+    msgBox.exec();
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    QMessageBox msgBox;
+    if (ns->IsBelong(ui->doubleSpinBox->value()))
+    {
+        msgBox.setText("Yes");
+    }
+    else msgBox.setText("No");
+    msgBox.exec();
 }

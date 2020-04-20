@@ -20,7 +20,7 @@ int main(){
     }
 
     int count = 0;
-    int max_pos = 0;
+    int min_pos = 5;
     for (int i = 0; i < 3; ++i)
     {
         int i_pos = 0;
@@ -31,10 +31,10 @@ int main(){
                 i_pos++;
             }
         }
-        if (max_pos < i_pos)
+        if ((min_pos > i_pos))
         {
             count = i;
-            max_pos = i_pos;
+            min_pos = i_pos;
         }
     }
 
@@ -49,7 +49,7 @@ int main(){
 
     for (int i = 0; i < 3; ++i)
     {
-        if (i >= count)
+        if (i > count)
         {
             for (int j = 0; j < 4; ++j)
             {

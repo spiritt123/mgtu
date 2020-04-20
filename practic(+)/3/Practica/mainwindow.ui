@@ -345,32 +345,6 @@
          </widget>
         </item>
         <item>
-         <spacer name="verticalSpacer_8">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_10">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
          <widget class="QPushButton" name="pushButton_3">
           <property name="text">
            <string>Показать квартиры по числу комнат и площади</string>
@@ -389,7 +363,7 @@
           <item>
            <widget class="QPushButton" name="pushButton_5">
             <property name="text">
-             <string>Ср стоимость м:2 на данном этаже</string>
+             <string>Ср стоимость м^2 c данным кол-вом комнат</string>
             </property>
            </widget>
           </item>
@@ -415,32 +389,11 @@
           </property>
          </widget>
         </item>
-        <item>
-         <spacer name="verticalSpacer_9">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
        </layout>
       </item>
      </layout>
     </item>
    </layout>
-   <zorder>layoutWidget</zorder>
-   <zorder>table</zorder>
-   <zorder>pushButton_3</zorder>
-   <zorder>pushButton_4</zorder>
-   <zorder>pushButton_5</zorder>
-   <zorder>pushButton_6</zorder>
-   <zorder>pushButton_7</zorder>
-   <zorder>lineEdit_6</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

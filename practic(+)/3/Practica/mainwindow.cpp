@@ -163,7 +163,7 @@ void MainWindow::on_pushButton_5_clicked()
         int sum = 0, k = 0;
         if (book.r.Ncom == (ui->lineEdit_3->text()).toInt())
         {
-            sum += book.r.S;
+            sum += book.r.cost;
             ++k;
         }
         int i=0;
@@ -171,7 +171,7 @@ void MainWindow::on_pushButton_5_clicked()
         {
             if (book.r.Ncom == (ui->lineEdit_3->text()).toInt())
             {
-                sum += book.r.S;
+                sum += book.r.cost;
                 ++k;
             }
         }

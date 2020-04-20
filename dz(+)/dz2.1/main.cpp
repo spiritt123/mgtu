@@ -7,14 +7,13 @@ void Delete(int *arr, int &len)
 {
     for (int i = 0; i < len; ++i)
     {
-        
-        for (int j = 0; j < i; ++j)
+        for (int j = i+1; j < len; ++j)
         {
             if (arr[j] == arr[i])
             {
-                arr[i] = arr[len - 1];
+                arr[j] = arr[len - 1];
                 --len;
-                break;
+                --j;
             } 
         }
     }

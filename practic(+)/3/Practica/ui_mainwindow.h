@@ -58,15 +58,12 @@ public:
     QVBoxLayout *verticalLayout_2;
     QTableWidget *table;
     QPushButton *pushButton_7;
-    QSpacerItem *verticalSpacer_8;
-    QSpacerItem *verticalSpacer_10;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_5;
     QLineEdit *lineEdit_6;
     QPushButton *pushButton_6;
-    QSpacerItem *verticalSpacer_9;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -244,14 +241,6 @@ public:
 
         verticalLayout_2->addWidget(pushButton_7);
 
-        verticalSpacer_8 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer_8);
-
-        verticalSpacer_10 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer_10);
-
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
 
@@ -285,10 +274,6 @@ public:
 
         verticalLayout_2->addWidget(pushButton_6);
 
-        verticalSpacer_9 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer_9);
-
 
         horizontalLayout_3->addLayout(verticalLayout_2);
 
@@ -296,13 +281,6 @@ public:
         verticalLayout_3->addLayout(horizontalLayout_3);
 
         MainWindow->setCentralWidget(centralWidget);
-        table->raise();
-        pushButton_3->raise();
-        pushButton_4->raise();
-        pushButton_5->raise();
-        pushButton_6->raise();
-        pushButton_7->raise();
-        lineEdit_6->raise();
 
         retranslateUi(MainWindow);
 
@@ -332,7 +310,7 @@ public:
         pushButton_7->setText(QApplication::translate("MainWindow", "\320\236\321\202\321\200\320\270\321\201\320\276\320\262\320\260\321\202\321\214", nullptr));
         pushButton_3->setText(QApplication::translate("MainWindow", "\320\237\320\276\320\272\320\260\320\267\320\260\321\202\321\214 \320\272\320\262\320\260\321\200\321\202\320\270\321\200\321\213 \320\277\320\276 \321\207\320\270\321\201\320\273\321\203 \320\272\320\276\320\274\320\275\320\260\321\202 \320\270 \320\277\320\273\320\276\321\211\320\260\320\264\320\270", nullptr));
         pushButton_4->setText(QApplication::translate("MainWindow", "\320\277\320\276\320\272\320\260\320\267\320\260\321\202\321\214 \320\272\320\276\320\273-\320\262\320\276 \320\272\320\262 \320\275\320\260 \321\215\321\202\320\260\320\266\320\265", nullptr));
-        pushButton_5->setText(QApplication::translate("MainWindow", "\320\241\321\200 \321\201\321\202\320\276\320\270\320\274\320\276\321\201\321\202\321\214 \320\274:2 \320\275\320\260 \320\264\320\260\320\275\320\275\320\276\320\274 \321\215\321\202\320\260\320\266\320\265", nullptr));
+        pushButton_5->setText(QApplication::translate("MainWindow", "\320\241\321\200 \321\201\321\202\320\276\320\270\320\274\320\276\321\201\321\202\321\214 \320\274^2 c \320\264\320\260\320\275\320\275\321\213\320\274 \320\272\320\276\320\273-\320\262\320\276\320\274 \320\272\320\276\320\274\320\275\320\260\321\202", nullptr));
         pushButton_6->setText(QApplication::translate("MainWindow", "\320\223\321\200\320\260\321\204\320\270\320\272", nullptr));
     } // retranslateUi
 
