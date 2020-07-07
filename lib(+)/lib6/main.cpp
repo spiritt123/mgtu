@@ -46,6 +46,7 @@ int main()
             buf += (int)str[i] - (int)('0');
         }
     }
+
     if (str[(int)str.length() - 1] != ' ')
     {
         List *start = new List;
@@ -53,7 +54,9 @@ int main()
         start->p    = first;
         first       = start;
     }
+
     List *pr = first;
+
     while (pr->p != nullptr)
     {
         int ch = sum(pr->value);
@@ -63,12 +66,19 @@ int main()
         cout<<pr->value<< '\n';
         pr = pr->p;
     }
+
     cout<<pr->value << '\n';
     
     int ch = sum(pr->value);
-    if (max < ch) max = ch;
-        ch = sum(pr->value);
-    if (min > ch) min = ch;
+
+    if (max < ch) 
+        max = ch;
+    
+    ch = sum(pr->value);
+
+    if (min > ch) 
+        min = ch;
+    
     cout<<"max: "<<max<<'\n';
     cout<<"min: "<<min<<'\n';
     

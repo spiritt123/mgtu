@@ -31,7 +31,7 @@ int main(){
                 i_pos++;
             }
         }
-        if ((min_pos > i_pos))
+        if (min_pos > i_pos)
         {
             count = i;
             min_pos = i_pos;
