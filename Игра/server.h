@@ -23,6 +23,6 @@ private:
     bool IsStart;
     int _freeId;
     void handlePackets();
-    void broadCast();
+    void broadCast(sf::TcpSocket *socket);
     
 };

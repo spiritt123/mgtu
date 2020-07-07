@@ -29,7 +29,7 @@ void Server::handlePackets()
             float x, y;
             packet >> x >> y;
             it->second->moveTo(x, y);
-            broadCast();
+            broadCast(it->first);
             ++it;
             break;
 
@@ -44,7 +44,7 @@ void Server::handlePackets()
         }
     }}
 
-void Server::broadCast()
+void Server::broadCast(sf::TcpSocket *socket)
 {
     sf::Packet packetOfData;
     packetOfData << (int)(clients.size());
@@ -55,11 +55,8 @@ void Server::broadCast()
                      << it->second->getPosition().y
                      << it->second->getRadius();
     }
-    for(Clients::iterator it = clients.begin(); 
-        it!=clients.end(); ++it)
-    {
-        it->first->send(packetOfData);
-    }
+    socket->send(packetOfData);
+
 }
 
 
