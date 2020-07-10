@@ -8,7 +8,7 @@ public:
     ~Client();
 
     sf::Socket::Status connect(const sf::IpAddress & IP, unsigned short port);
-    sf::Socket::Status send (float x, float y);
+    sf::Socket::Status send(float x, float y);
     sf::Socket::Status receive(sf::Packet *packetOfData);
 
 private:

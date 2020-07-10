@@ -1,30 +1,20 @@
 #include "Player.h"
-#include "math.h"
 
 Player::Player()
 {
     _x = 0;
     _y = 0;
     _radius = 20;
+    _id = 0;
 }
 
 
-Player::~Player(){}
-
-
-
-void Player::moveTo(float x, float y)
+Player::~Player()
 {
-    float eps = 1.f; //infinitesimal
-    float percentAllLenghtOffset = 0.1f;
-    if (((_x - x)*(_x - x) + (_y - y)*(_y - y)) > eps)
-    {
-        setPosition(_x + _radius + (x - _x - _radius)*percentAllLenghtOffset, 
-                    _y + _radius + (y - _y - _radius)*percentAllLenghtOffset);
-    }
+    delete _socket;
 }
 
-float LenghtLine(sf::Vector2f first, float first_radius, 
+float getLenghtWith2Object(sf::Vector2f first, float first_radius, 
                  sf::Vector2f second, float second_radius)
 {
     float offset = first_radius - second_radius;
@@ -32,19 +22,80 @@ float LenghtLine(sf::Vector2f first, float first_radius,
                 (first.y - second.y + offset) * (first.y - second.y + offset));
 }
 
-void Player::CheckingForFood(std::vector<Object*> *food)
+void Player::correctPositionAboutBounds(float boundsRadius)
 {
-    for (int i = 0; i < food->size(); ++i)
+    float lenght = getLenghtWith2Object(getPosition(), getRadius(), sf::Vector2f(0, 0), 0);
+    if (lenght > boundsRadius)
     {
-        if (LenghtLine((*food)[i]->getPosition(), (*food)[i]->getRadius(),
-                       getPosition(), getRadius()) < _radius)
-        {
-            setRadius(getRadius() + 1);
-            delete (*food)[i];
-            food->erase(food->begin() + i);
-        }
+        _x = _x * boundsRadius / lenght; 
+        _y = _y * boundsRadius / lenght; 
     }
 }
 
 
+void Player::moveTo(float x, float y)
+{
+    float speed = 10;
+    setPosition(_x + x * speed + _radius, _y + y * speed + _radius);   
+    correctPositionAboutBounds(2000);
+}
 
+
+void Player::setId(int id)
+{
+    _id = id;
+}
+
+int Player::getId()
+{
+    return _id;
+}
+
+
+
+//I know you could have written it better.
+void Player::tryToEatAFood(std::list<Object*> *food)
+{
+    for (std::list<Object*>::iterator it = food->begin(); 
+        it!=food->end();)
+    {
+        if (getLenghtWith2Object((*it)->getPosition(), (*it)->getRadius(),
+                       getPosition(), getRadius()) < _radius)
+        {
+            setRadius(getRadius() + 1);
+            it = food->erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+}
+
+void Player::tryToEatAPlayers(std::list<Player*> *food, int id)
+{
+    for (std::list<Player*>::iterator it = food->begin(); 
+        it!=food->end();)
+    {
+        if ((getLenghtWith2Object((*it)->getPosition(), (*it)->getRadius(),
+            getPosition(), getRadius()) < _radius) && (id != (*it)->getId()))
+        {
+            setRadius(getRadius() + 1);
+            it = food->erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+}
+
+void Player::connect(sf::TcpSocket *socket)
+{
+    _socket = socket;
+}
+
+sf::TcpSocket* Player::getSocket()
+{
+    return _socket;
+}

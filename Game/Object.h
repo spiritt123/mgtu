@@ -1,5 +1,6 @@
 #ifndef _OBJECT_H_
 #define _OBJECT_H_
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
@@ -21,9 +22,6 @@ protected:
     float _x;
     float _y;
     float _radius; 
-
-private:
-    //std::vector<food> foods;
 };
 
 

@@ -1,6 +1,5 @@
 
-#include <iostream>
-#include "client.h"
+#include "Client.h"
 
 Client::Client()
 {
@@ -22,9 +21,7 @@ sf::Socket::Status Client::connect(const sf::IpAddress & IP, unsigned short port
 sf::Socket::Status Client::send(float x, float y)
 {
     sf::Packet packet;
-    
     packet << x << y;
-    
     return _socket.send(packet);
 }
 

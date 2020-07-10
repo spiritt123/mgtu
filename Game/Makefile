@@ -1,12 +1,12 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
-SOURCES_CLIENT=client.cpp client_main.cpp
-SOURCES_SERVER=Object.cpp Player.cpp server.cpp server_main.cpp
+SOURCES_CLIENT=Client.cpp client_main.cpp
+SOURCES_SERVER=Object.cpp Player.cpp Server.cpp server_main.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=client server
 
-all: clear client server
+all: clear server client
 
 client:
 	$(CC) $(SOURCES_CLIENT) -o client -DSFML_STATIC \

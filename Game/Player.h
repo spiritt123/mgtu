@@ -1,7 +1,12 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
+
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include <iostream>
+#include <list>
+#include "math.h"
+
 #include "Object.h"
 
 class Player : public Object
@@ -11,14 +16,23 @@ public:
     ~Player();
 
     void moveTo(float x, float y);
-    
-    void CheckingForFood(std::vector<Object*> *food);
 
-    void connect();
-    void sendData();
+    void setId(int id);
+    int getId();
+    
+    void tryToEatAFood(std::list<Object*> *food);
+    void tryToEatAPlayers(std::list<Player*> *food, int id);
+
+    void connect(sf::TcpSocket *socket);
+    sf::TcpSocket* getSocket();
 
 private:
+    void correctPositionAboutBounds(float boundsRadius);
+
+private:
+    int _id;
     float _maxSpeed;
+    sf::TcpSocket *_socket;
 };
 
 
