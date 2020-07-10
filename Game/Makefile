@@ -1,19 +1,18 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
-SOURCES_CLIENT=Client.cpp client_main.cpp
-SOURCES_SERVER=Object.cpp Player.cpp Server.cpp server_main.cpp
+SOURCES=Client.cpp client_main.cpp Object.cpp Player.cpp Server.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=client server
+EXECUTABLE=client
 
-all: clear server client
+all: $(SOURCES) $(EXECUTABLE)
 
-client:
-	$(CC) $(SOURCES_CLIENT) -o client -DSFML_STATIC \
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@ -DSFML_STATIC \
 	-Iinclude -Llib -pthread -lsfml-graphics -lsfml-system -lsfml-window -lsfml-network -lfreetype -lstdc++
-server:
-	$(CC) $(SOURCES_SERVER) -o server -DSFML_STATIC \
-	-Iinclude -Llib -pthread -lsfml-graphics -lsfml-system -lsfml-window -lsfml-network -lfreetype -lstdc++
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
 
 clear:
 	rm -f *.o $(EXECUTABLE)

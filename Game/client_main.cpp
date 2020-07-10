@@ -3,15 +3,36 @@
 #include <SFML/Network.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
+#include <thread>
 #include "unistd.h"
 
+#include "menu.h"
 #include "Client.h"
+#include "Server.h"
 
 #define WIDTH 620
 #define HEIGHT 480
 
-int main()
+void StartServer()
 {
+    Server server(8080);
+    server.run();   
+}
+
+int main() 
+{
+    switch (menu())
+    {
+        case 0:
+            break;
+        case 1:
+            std::thread lf(StartServer);
+            lf.detach();
+            break;
+
+    }
+    usleep(100000); 
+    
 
     Client client;
     sf::Socket::Status status = client.connect(sf::IpAddress::getLocalAddress(), 8080);
@@ -21,6 +42,7 @@ int main()
         std::cout<<"Sorry we couldn't !!! connect\n";
         return -1;
     }
+
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Project Life");
     window.setFramerateLimit(30);
