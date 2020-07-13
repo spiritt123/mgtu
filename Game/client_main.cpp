@@ -28,14 +28,14 @@ restart:
     int statusWindow = menu();
     switch (statusWindow)
     {
-        case 0:
-            break;
         case 1:
             if(start == false)
             {
                 std::thread lf(StartServer);
                 lf.detach();    
             }
+            break;
+        case 2:
             break;
         default:
             return 0;
@@ -60,6 +60,7 @@ restart:
     float x, y;
     float px, py, radius;
     int r, g, b;
+    int scale;
 
     while (window.isOpen())
     {
@@ -74,10 +75,14 @@ restart:
             {
                 x = event.mouseMove.x - (float)WIDTH/2;
                 y = event.mouseMove.y - (float)HEIGHT/2;
-            }  
+            } 
+            if (event.type == sf::Event::KeyPressed)
+            {
+                if (event.key.code == sf::Keyboard::Escape) window.close();
+            } 
         }
-
-        sf::Socket::Status status = client.send(2*x/WIDTH, 2*y/HEIGHT);
+        float lenghtOffset = sqrt(x*x + y*y); 
+        sf::Socket::Status status = client.send(x/lenghtOffset, y/lenghtOffset);
         if (status == sf::Socket::Disconnected)
         {
             goto restart;
@@ -97,16 +102,17 @@ restart:
             float dx = 0, dy = 0;
             
             *packetOfData >> dx >> dy;
+            *packetOfData >> scale;
             
-            dx = (float)WIDTH/2 - dx;
-            dy = (float)HEIGHT/2 - dy;
+            dx = (float)WIDTH/2 - dx/scale;
+            dy = (float)HEIGHT/2 - dy/scale;
 
             *packetOfData >> k;
         
             sf::CircleShape circle;
             
-            circle.setRadius(2000);
-            circle.setPosition(dx - 2000, dy - 2000);
+            circle.setRadius(2000/scale);
+            circle.setPosition(dx - 2000/scale, dy - 2000/scale);
             circle.setFillColor(sf::Color(255, 255, 255));
             
             window.draw(circle);
@@ -118,8 +124,9 @@ restart:
                 *packetOfData >> px >> py >> radius;
                 *packetOfData >> r >> g >> b;
                 
-                circle.setRadius(radius);
-                circle.setPosition(px + dx, py + dy);
+                
+                circle.setRadius((radius)/scale);
+                circle.setPosition(px/scale + dx, py/scale + dy);
                 circle.setFillColor(sf::Color(r,g, b));
                 
                 window.draw(circle);

@@ -1,6 +1,9 @@
 #include "Object.h"
 
-Object::Object(){}
+Object::Object()
+{
+    _color = {rand()%255, rand()%255, rand()%255};
+}
 
 Object::~Object(){}
 
@@ -9,7 +12,6 @@ void Object::setPosition(float x, float y)
 {
     _x = x - _radius;
     _y = y - _radius;
-    _color = {rand()%255, rand()%255, rand()%255};
 }
 
 sf::Vector2f Object::getPosition()
@@ -28,8 +30,14 @@ float Object::getRadius()
     return _radius;
 }
 
+void Object::setColor(int r, int g, int b)
+{
+    _color = {r, g, b};
+}
+
 Color Object::getColor()
 {
     return _color;
 }
+
 

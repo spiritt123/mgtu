@@ -21,6 +21,7 @@ public:
     void setRadius(float radius);
     float getRadius();
 
+    void setColor(int r, int g, int b);
     Color getColor();
 
 protected:

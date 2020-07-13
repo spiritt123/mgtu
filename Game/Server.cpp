@@ -47,11 +47,15 @@ void Server::handlePackets()
         }
     }}
 
+
+
 void Server::broadCast(Player *pl)
 {
     sf::Packet packetOfData;
-    packetOfData << (pl->getPosition().x + pl->getRadius()) << (pl->getPosition().y + pl->getRadius());
-    packetOfData << ((int)(_clients->size()) + (int)(_foodItem->size()));
+    packetOfData << (pl->getPosition().x + pl->getRadius()) 
+                 << (pl->getPosition().y + pl->getRadius())
+                 << (int)log2(pl->getRadius() / 10)
+                 << ((int)(_clients->size()) + (int)(_foodItem->size()));
     
     for (std::list<Object*>::iterator it = _foodItem->begin(); 
         it != _foodItem->end(); ++it)
@@ -74,7 +78,6 @@ void Server::broadCast(Player *pl)
                      << (*it)->getColor().g
                      << (*it)->getColor().b;
     }
-
     pl->getSocket()->send(packetOfData);
 
 }
@@ -102,6 +105,7 @@ void Server::run()
             pl->connect(nextClient);
             pl->setId(_freeId);
             pl->setPosition(0, 0);
+            pl->setColor(rand()%255, rand()%255, rand()%255);
             _clients->push_back(pl);
             nextClient=nullptr;
             _IsStart = false;

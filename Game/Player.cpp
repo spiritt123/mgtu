@@ -4,8 +4,9 @@ Player::Player()
 {
     _x = 0;
     _y = 0;
-    _radius = 20;
+    _radius = 21;
     _id = 0;
+    _speed = 10;
 }
 
 
@@ -35,8 +36,7 @@ void Player::correctPositionAboutBounds(float radiusMap)
 
 void Player::moveTo(float x, float y, float radiusMap)
 {
-    float speed = 10;
-    setPosition(_x + x * speed + _radius, _y + y * speed + _radius);   
+    setPosition(_x + x * _speed + _radius, _y + y * _speed + _radius);   
     correctPositionAboutBounds(radiusMap);
 }
 
@@ -52,7 +52,6 @@ int Player::getId()
 }
 
 
-
 //I know you could have written it better.
 void Player::tryToEatAFood(std::list<Object*> *food)
 {
@@ -62,7 +61,8 @@ void Player::tryToEatAFood(std::list<Object*> *food)
         if (getLenghtWith2Object((*it)->getPosition(), (*it)->getRadius(),
                        getPosition(), getRadius()) < _radius)
         {
-            setRadius(getRadius() + 1);
+            setRadius(sqrt(getRadius()*getRadius() + (*it)->getRadius()*(*it)->getRadius()));
+            _speed = 10 / log2(_radius / 10);
             it = food->erase(it);
         }
         else
@@ -82,6 +82,7 @@ void Player::tryToEatAPlayers(std::list<Player*> *food, int id)
         {
             setRadius(getRadius() + 1);
             (*it)->getSocket()->disconnect();
+            _speed = 10 / log2(_radius / 10);
             it = food->erase(it);
         }
         else

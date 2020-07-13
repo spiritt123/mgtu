@@ -31,7 +31,7 @@ private:
 
 private:
     int _id;
-    float _maxSpeed;
+    float _speed;
     sf::TcpSocket *_socket;
 };
 
