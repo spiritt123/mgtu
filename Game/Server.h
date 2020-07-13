@@ -19,7 +19,7 @@ public:
 
 private:
     void handlePackets();
-    void broadCast(sf::TcpSocket *socket, sf::Vector2f vec, float radius);
+    void broadCast(Player *pl);
 private:
     std::list<Player*> *_clients;
     std::list<Object*> *_foodItem;

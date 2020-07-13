@@ -4,7 +4,10 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-
+struct Color
+{
+    int r, g, b;
+};
 
 class Object
 {
@@ -18,10 +21,13 @@ public:
     void setRadius(float radius);
     float getRadius();
 
+    Color getColor();
+
 protected:
     float _x;
     float _y;
     float _radius; 
+    Color _color;
 };
 
 

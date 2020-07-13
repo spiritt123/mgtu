@@ -7,7 +7,7 @@
 
 int menu()
 {
-    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Project Life");
+    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Agar.io 0.1");
     window.setFramerateLimit(30);
 
     sf::Texture menuTexture1, menuTexture2, menuTexture3, aboutTexture, menuBackground;
@@ -15,6 +15,14 @@ int menu()
     menuTexture2.loadFromFile("img/connect.png");
     menuTexture3.loadFromFile("img/exit.png");
     sf::Sprite menu1(menuTexture1), menu2(menuTexture2), menu3(menuTexture3);
+
+    sf::Font font;
+    font.loadFromFile("Abbieshire.ttf");
+    sf::Text text("Agar.io 0.1", font);
+    text.setCharacterSize(50);
+    text.setStyle(sf::Text::Bold);
+    text.setFillColor(sf::Color::Red);
+    text.setPosition(WIDTH/2 - 120, 100);
 
     int menuNum = 0;
 
@@ -41,15 +49,15 @@ int menu()
         
         window.clear(sf::Color(129, 181, 221));
 
-        if (sf::IntRect(WIDTH/2 - 150, HEIGHT/2 - 60,  WIDTH/2 + 150, 50).contains(sf::Mouse::getPosition(window))) 
+        if (sf::IntRect(WIDTH/2 - 150, HEIGHT/2 - 60,  WIDTH/2, 50).contains(sf::Mouse::getPosition(window))) 
         { 
             menu1.setColor(sf::Color::Blue); menuNum = 1; 
         }
-        if (sf::IntRect(WIDTH/2 - 150, HEIGHT/2,  WIDTH/2 + 150, 50).contains(sf::Mouse::getPosition(window))) 
+        if (sf::IntRect(WIDTH/2 - 150, HEIGHT/2,  WIDTH/2 , 50).contains(sf::Mouse::getPosition(window))) 
         { 
             menu2.setColor(sf::Color::Blue); menuNum = 2; 
         }
-        if (sf::IntRect(WIDTH/2 - 150, HEIGHT/2 + 60, WIDTH/2 + 150, 50).contains(sf::Mouse::getPosition(window))) 
+        if (sf::IntRect(WIDTH/2 - 150, HEIGHT/2 + 60, WIDTH/2, 50).contains(sf::Mouse::getPosition(window))) 
         { 
             menu3.setColor(sf::Color::Blue); menuNum = 3; 
         }
@@ -59,11 +67,12 @@ int menu()
             return menuNum;
             window.close(); 
         }
-        ///// отрисовка меню////
+        
         window.draw(menu1);
         window.draw(menu2);
         window.draw(menu3);
-        ///// создание окна////
+        window.draw(text);
+        
         window.display();
     }
         

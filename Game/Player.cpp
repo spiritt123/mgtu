@@ -22,22 +22,22 @@ float getLenghtWith2Object(sf::Vector2f first, float first_radius,
                 (first.y - second.y + offset) * (first.y - second.y + offset));
 }
 
-void Player::correctPositionAboutBounds(float boundsRadius)
+void Player::correctPositionAboutBounds(float radiusMap)
 {
     float lenght = getLenghtWith2Object(getPosition(), getRadius(), sf::Vector2f(0, 0), 0);
-    if (lenght > boundsRadius)
+    if (lenght > radiusMap)
     {
-        _x = _x * boundsRadius / lenght; 
-        _y = _y * boundsRadius / lenght; 
+        _x = _x * radiusMap / lenght; 
+        _y = _y * radiusMap / lenght; 
     }
 }
 
 
-void Player::moveTo(float x, float y)
+void Player::moveTo(float x, float y, float radiusMap)
 {
     float speed = 10;
     setPosition(_x + x * speed + _radius, _y + y * speed + _radius);   
-    correctPositionAboutBounds(2000);
+    correctPositionAboutBounds(radiusMap);
 }
 
 
@@ -81,6 +81,7 @@ void Player::tryToEatAPlayers(std::list<Player*> *food, int id)
             getPosition(), getRadius()) < _radius) && (id != (*it)->getId()))
         {
             setRadius(getRadius() + 1);
+            (*it)->getSocket()->disconnect();
             it = food->erase(it);
         }
         else

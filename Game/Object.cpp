@@ -9,6 +9,7 @@ void Object::setPosition(float x, float y)
 {
     _x = x - _radius;
     _y = y - _radius;
+    _color = {rand()%255, rand()%255, rand()%255};
 }
 
 sf::Vector2f Object::getPosition()
@@ -27,6 +28,8 @@ float Object::getRadius()
     return _radius;
 }
 
-
-
+Color Object::getColor()
+{
+    return _color;
+}
 

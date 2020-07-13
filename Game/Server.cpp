@@ -1,5 +1,6 @@
 
 #include "Server.h"
+#define radiusMap 2000
 
 Server::Server(unsigned short port)
 {
@@ -30,10 +31,10 @@ void Server::handlePackets()
         case sf::Socket::Done:
             float x, y;
             packet >> x >> y;
-            (*it)->moveTo(x, y);
+            (*it)->moveTo(x, y, radiusMap);
             (*it)->tryToEatAFood(_foodItem);
             (*it)->tryToEatAPlayers(_clients, (*it)->getId());
-            broadCast((*it)->getSocket(), (*it)->getPosition(), (*it)->getRadius());
+            broadCast(*it);
             ++it;
             break;
 
@@ -46,27 +47,35 @@ void Server::handlePackets()
         }
     }}
 
-void Server::broadCast(sf::TcpSocket *socket, sf::Vector2f vec, float radius)
+void Server::broadCast(Player *pl)
 {
     sf::Packet packetOfData;
-    packetOfData << (vec.x + radius) << (vec.y + radius);
+    packetOfData << (pl->getPosition().x + pl->getRadius()) << (pl->getPosition().y + pl->getRadius());
     packetOfData << ((int)(_clients->size()) + (int)(_foodItem->size()));
-    for (std::list<Player*>::iterator it = _clients->begin(); 
-        it!=_clients->end(); ++it)
-    {
-        packetOfData << (*it)->getPosition().x 
-                     << (*it)->getPosition().y
-                     << (*it)->getRadius();
-    }
+    
     for (std::list<Object*>::iterator it = _foodItem->begin(); 
         it != _foodItem->end(); ++it)
     {
         packetOfData << (*it)->getPosition().x 
                      << (*it)->getPosition().y
-                     << (*it)->getRadius();
+                     << (*it)->getRadius()
+                     << (*it)->getColor().r
+                     << (*it)->getColor().g
+                     << (*it)->getColor().b;
     }
 
-    socket->send(packetOfData);
+    for (std::list<Player*>::iterator it = _clients->begin(); 
+        it!=_clients->end(); ++it)
+    {
+        packetOfData << (*it)->getPosition().x 
+                     << (*it)->getPosition().y
+                     << (*it)->getRadius()
+                     << (*it)->getColor().r
+                     << (*it)->getColor().g
+                     << (*it)->getColor().b;
+    }
+
+    pl->getSocket()->send(packetOfData);
 
 }
 

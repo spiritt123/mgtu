@@ -15,7 +15,7 @@ public:
     Player();
     ~Player();
 
-    void moveTo(float x, float y);
+    void moveTo(float x, float y, float radiusMap);
 
     void setId(int id);
     int getId();
@@ -27,7 +27,7 @@ public:
     sf::TcpSocket* getSocket();
 
 private:
-    void correctPositionAboutBounds(float boundsRadius);
+    void correctPositionAboutBounds(float radiusMap);
 
 private:
     int _id;
